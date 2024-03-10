@@ -1,12 +1,7 @@
 import {getPageData} from "@/lib/api";
 import Render from "@/components/helpers/render";
-import {Metadata} from "next";
 
-export const metadata: Metadata = {
-  title: "Sup bro",
-};
-
-export default async function Page() {
+export default async function Header(){
   const params = {
     populate: {
       components : {
@@ -16,13 +11,15 @@ export default async function Page() {
     publicationState: 'live',
     locale: ['en']
   }
-  const response = await getPageData('/api/homepage', params)
+  const response = await getPageData('/api/header', params)
   if(!response.data.id) {
     return '';
   }
   const { id, attributes } = response.data;
   const { components, locale } = attributes;
   return (
-    <Render components={components} uuid={id} locale={locale} />
+    <header>
+      <Render components={components} uuid={id} locale={locale} />
+    </header>
   )
 }

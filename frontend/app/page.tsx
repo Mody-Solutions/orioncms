@@ -1,28 +1,34 @@
 import {getPageData} from "@/lib/api";
 import Render from "@/components/helpers/render";
 import {Metadata} from "next";
+import {notFound} from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Sup bro",
+  title: 'Mody Solutions',
 };
 
 export default async function Page() {
   const params = {
+    publicationState: 'live',
+    locale: ['en'],
     populate: {
       components : {
-        populate: '*',
+        populate: {
+          items: {
+            populate: '*'
+          }
+        },
       },
     },
-    publicationState: 'live',
-    locale: ['en']
   }
+
   const response = await getPageData('/api/homepage', params)
   if(!response.data.id) {
-    return '';
+    notFound();
   }
-  const { id, attributes } = response.data;
-  const { components, locale } = attributes;
+  const { attributes } = response.data;
+  const { uuid, components, locale } = attributes;
   return (
-    <Render components={components} uuid={id} locale={locale} />
+    <Render components={components} uuid={uuid} locale={locale} />
   )
 }

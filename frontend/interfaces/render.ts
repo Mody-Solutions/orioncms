@@ -1,5 +1,10 @@
+import {ComponentsArray} from "@/interfaces/components";
+
 export default interface RenderInterface {
-  components: any[];
+  components: ComponentsArray[];
   uuid: string;
   locale: string;
+  direction?: string;
+  lines?: number;
+  className?: string;
 }

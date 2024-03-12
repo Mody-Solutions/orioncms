@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_ui_flip_grids",
+  "info": {
+    "displayName": "Flip Grid",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image_start": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "left",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui-child.flip-grid-components"
+    }
+  }
+}

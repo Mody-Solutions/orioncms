@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ui_accordion_items",
+  "info": {
+    "displayName": "accordion_items",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_ui_accordions",
+  "info": {
+    "displayName": "accordion",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "displayName": "accordion_items",
+      "type": "component",
+      "repeatable": true,
+      "component": "ui-child.accordion-items"
+    }
+  }
+}

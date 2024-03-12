@@ -813,13 +813,36 @@ export interface ApiHeaderHeader extends Schema.SingleType {
       }> &
       Attribute.DefaultTo<'header'>;
     components: Attribute.DynamicZone<
-      ['menu.navigation', 'ui.accordion', 'ui.button']
+      ['menu.navigation', 'ui.button', 'ui.image']
     > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    uuid: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    layout: Attribute.Enumeration<
+      [
+        'full-width',
+        'two-column-equal-size',
+        'two-column-sidebar-left',
+        'two-column-sidebar-right',
+        'three-column-equal-size',
+        'four-column-equal-size'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'two-column-equal-size'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -867,7 +890,17 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
           localized: true;
         };
       }>;
-    components: Attribute.DynamicZone<['ui.accordion', 'ui.button']> &
+    components: Attribute.DynamicZone<
+      [
+        'ui.accordion',
+        'ui.button',
+        'menu.navigation',
+        'ui.image',
+        'ui.rich-text',
+        'ui.title',
+        'ui.flip-grid'
+      ]
+    > &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -880,6 +913,13 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
         },
         number
       >;
+    uuid: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -904,19 +944,77 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiNotFoundNotFound extends Schema.SingleType {
+  collectionName: 'not_founds';
+  info: {
+    singularName: 'not-found';
+    pluralName: 'not-founds';
+    displayName: 'Not Found';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    components: Attribute.DynamicZone<
+      [
+        'menu.navigation',
+        'ui.accordion',
+        'ui.button',
+        'ui.container',
+        'ui.image',
+        'ui.rich-text',
+        'ui.title',
+        'ui.flip-grid'
+      ]
+    >;
+    uuid: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
     singularName: 'page';
     pluralName: 'pages';
     displayName: 'Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Components: Attribute.DynamicZone<['ui.accordion', 'ui.button']>;
+    title: Attribute.String;
+    components: Attribute.DynamicZone<
+      [
+        'ui.accordion',
+        'ui.button',
+        'ui.rich-text',
+        'ui.image',
+        'ui.title',
+        'ui.flip-grid'
+      ]
+    >;
+    uuid: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+    path: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -947,6 +1045,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
     }
   }

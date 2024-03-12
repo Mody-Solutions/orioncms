@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_menu_menu_items",
+  "info": {
+    "displayName": "items",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "path": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "sub_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.menu-sub-items"
+    }
+  }
+}

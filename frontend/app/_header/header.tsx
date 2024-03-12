@@ -5,7 +5,14 @@ export default async function Header(){
   const params = {
     populate: {
       components : {
-        populate: '*',
+        populate: {
+          items: {
+            populate: {
+              sub_items: '*',
+            }
+          },
+          image: '*'
+        },
       },
     },
     publicationState: 'live',
@@ -15,11 +22,11 @@ export default async function Header(){
   if(!response.data.id) {
     return '';
   }
-  const { id, attributes } = response.data;
-  const { components, locale } = attributes;
+  const { attributes } = response.data;
+  const { uuid, components, locale } = attributes;
   return (
-    <header>
-      <Render components={components} uuid={id} locale={locale} />
+    <header className={'container'}>
+      <Render components={components} uuid={uuid} locale={locale} lines={3} />
     </header>
   )
 }

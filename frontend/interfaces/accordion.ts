@@ -1,10 +1,10 @@
 import ComponentsInterface from "@/interfaces/components";
 
-export interface AccordionItems extends ComponentsInterface {
+export interface AccordionInterfaceItem extends ComponentsInterface {
   title: string;
   content: string;
 }
 
 export default interface AccordionInterface extends ComponentsInterface  {
-  items: AccordionItems[];
+  items: AccordionInterfaceItem[];
 }

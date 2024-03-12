@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_ui_titles",
+  "info": {
+    "displayName": "title",
+    "icon": "pencil",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        "span"
+      ]
+    }
+  }
+}

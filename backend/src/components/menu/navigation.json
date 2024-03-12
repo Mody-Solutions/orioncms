@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_menu_navigations",
+  "info": {
+    "displayName": "navigation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.menu-items"
+    }
+  }
+}

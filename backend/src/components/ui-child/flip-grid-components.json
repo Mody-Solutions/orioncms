@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_ui_child_flip_grid_components",
+  "info": {
+    "displayName": "flip_grid_components",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "two-column-equal-size",
+        "two-column-sidebar-left",
+        "two-column-sidebar-right",
+        "three-column-equal-size",
+        "four-column-equal-size"
+      ],
+      "default": "two-column-equal-size",
+      "required": true
+    }
+  }
+}

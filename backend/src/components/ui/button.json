@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_ui_buttons",
+  "info": {
+    "displayName": "button",
+    "description": "",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "path": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "link"
+      ],
+      "default": "default",
+      "required": true
+    }
+  }
+}

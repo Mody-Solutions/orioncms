@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_ui_containers",
+  "info": {
+    "displayName": "container",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

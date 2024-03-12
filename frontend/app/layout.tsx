@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import Header from "@/app/_header/header";
+import {Suspense} from "react";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
@@ -18,7 +20,14 @@ export default function RootLayout({
       <body className={cn(
         'min-h-screen bg-background inter antialiased',
         inter.className
-      )}>{children}</body>
+      )}>
+        <Header />
+        <div className={'md:container md:mx-auto'}>
+          <Suspense>
+            {children}
+          </Suspense>
+        </div>
+      </body>
     </html>
   );
 }
